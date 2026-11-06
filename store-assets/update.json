@@ -1,0 +1,29 @@
+{
+  "_comment": "Kookyar update manifest template. Host this file anywhere reachable (GitHub raw, your CDN, ...) and put its URL in UpdateChecker.UPDATE_JSON_URL. On every release: bump version_code + version_name, set date, translate the changelog lists (fa/en) — the app merges these release notes into Settings → «نسخه و تغییرات» automatically (no new APK needed for note fixes). version_code is compared against the installed BuildConfig.VERSION_CODE.",
+  "version_code": 2,
+  "version_name": "1.1.0",
+  "date": "2026-11-03",
+  "min_version_code": 1,
+  "apk_url": "https://example.com/downloads/kookyar-1.1.0.apk",
+  "changelog": {
+    "fa": [
+      "زبان انگلیسی اضافه شد؛ اپلیکیشن دو زبانه شد (فارسی / English)",
+      "کلید تغییر زبان در صفحه تیونر، کنار دکمه تم",
+      "واکنش عقربه کوک خیلی روان‌تر و خواناتر شد",
+      "بخش «نسخه و تغییرات» در تنظیمات",
+      "بررسی و دریافت به‌روزرسانی از مارکت‌ها یا فایل نصبی در تنظیمات"
+    ],
+    "en": [
+      "Added English - the app is now fully bilingual (فارسی / English)",
+      "Language switch button on the tuner page, next to the theme button",
+      "Much smoother, easier-to-read tuning needle",
+      "New \"Version & changes\" section in Settings",
+      "In-app update check & download from stores or APK in Settings"
+    ]
+  },
+  "markets": {
+    "bazaar": "https://cafebazaar.ir/app/com.kookyar.app",
+    "myket": "https://myket.ir/app/com.kookyar.app",
+    "google_play": "https://play.google.com/store/apps/details?id=com.kookyar.app"
+  }
+}

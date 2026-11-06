@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paths shared with the system package installer for update APKs. -->
+<paths>
+    <external-files-path
+        name="update_apks"
+        path="Download/updates/" />
+    <external-files-path
+        name="downloads"
+        path="Download/" />
+</paths>

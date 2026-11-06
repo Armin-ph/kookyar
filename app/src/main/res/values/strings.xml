@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">کوک‌یار</string>
+
+    <!-- Navigation -->
+    <string name="nav_tuner">تیونر</string>
+    <string name="nav_metronome">مترونوم</string>
+    <string name="nav_instruments">سازها</string>
+    <string name="nav_ear">تمرین گوش</string>
+    <string name="nav_history">تاریخچه</string>
+    <string name="nav_settings">تنظیمات</string>
+
+    <!-- Settings toggles -->
+    <string name="settings_haptics">لرزش هنگام کوک دقیق</string>
+    <string name="settings_haptics_desc">لرزش ملایم هنگام رسیدن به کوک دقیق</string>
+    <string name="settings_quartertones">پشتیبانی ربع‌پرده (سری و کرن)</string>
+    <string name="settings_quartertones_desc">فعال‌سازی فواصل ربع‌پرده در موسیقی ایرانی</string>
+    <string name="settings_keep_screen">روشن ماندن صفحه</string>
+    <string name="settings_keep_screen_desc">جلوگیری از خاموش‌شدن صفحه در حین کوک</string>
+    <string name="settings_particles">انیمیشن ذرات</string>
+    <string name="settings_particles_desc">جشن ذرات هنگام کوک دقیق</string>
+    <string name="settings_sound_feedback">صدای تأیید کوک</string>
+    <string name="settings_sound_feedback_desc">نواختن ملایم نت پس از کوک دقیق</string>
+    <string name="settings_theme">تم برنامه</string>
+    <string name="theme_glass">تاریک شیشه‌ای</string>
+    <string name="theme_glass_desc">مدرن، شفاف و تیره</string>
+    <string name="theme_persian">سنتی ایرانی</string>
+    <string name="theme_persian_desc">اصیل، هنری و ایرانی</string>
+    <string name="theme_neon">نئون</string>
+    <string name="theme_neon_desc">پر جلوه و درخشان</string>
+
+    <!-- Common -->
+    <string name="ok">باشه</string>
+    <string name="cancel">لغو</string>
+    <string name="save">ذخیره</string>
+    <string name="delete">حذف</string>
+    <string name="close">بستن</string>
+    <string name="start">شروع</string>
+    <string name="stop">توقف</string>
+    <string name="reset">صفر کردن</string>
+    <string name="play">پخش</string>
+    <string name="pause">مکث</string>
+
+    <!-- Permission -->
+    <string name="mic_permission_title">اجازه دسترسی به میکروفون</string>
+    <string name="mic_permission_text">برای شنیدن صدای ساز و کوک دقیق، باید به میکروفون دسترسی بدهیم. صدای شما در هیچ جا ذخیره یا ارسال نمی‌شود.</string>
+    <string name="mic_permission_grant">اجازه می‌دهم</string>
+
+    <!-- A11y -->
+    <string name="a11y_back">بازگشت</string>
+    <string name="a11y_settings">تنظیمات</string>
+    <string name="a11y_play_pause">پخش یا توقف</string>
+</resources>
