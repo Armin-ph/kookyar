@@ -13,6 +13,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.io.File
+import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -53,10 +54,20 @@ import java.net.URL
 object UpdateChecker {
 
     /**
-     * Remote update manifest URL. Replace with your own hosted file before
-     * publishing (a template lives in store-assets/update.json).
+     * The server answered with a non-2xx status.
+     * code 404 → update.json is not hosted at [UPDATE_JSON_URL] (most common
+     * mistake: setting apk_url inside the file while the file itself is not
+     * reachable) — different from a device-side connection problem.
      */
-    const val UPDATE_JSON_URL = "https://raw.githubusercontent.com/kookyar/app/main/update.json"
+    class UpdateHttpException(val code: Int, message: String) : IOException(message)
+
+    /**
+     * Remote update manifest URL - the LIVE hosted file (GitHub, master
+     * branch). Keep this in sync with where store-assets/update.json is
+     * published. Tested reachable: HTTP 200.
+     */
+    const val UPDATE_JSON_URL =
+        "https://raw.githubusercontent.com/Armin-ph/kookyar/master/store-assets/update.json"
 
     @Serializable
     data class UpdateManifest(
@@ -98,6 +109,8 @@ object UpdateChecker {
                 conn.readTimeout = 8_000
                 conn.setRequestProperty("Cache-Control", "no-cache")
                 try {
+                    val code = conn.responseCode
+                    if (code !in 200..299) throw UpdateHttpException(code, "HTTP $code for $url")
                     val body = conn.inputStream.bufferedReader().use { it.readText() }
                     json.decodeFromString(UpdateManifest.serializer(), body)
                 } finally {

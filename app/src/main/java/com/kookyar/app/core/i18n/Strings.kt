@@ -137,6 +137,8 @@ class Strings(private val lang: AppLanguage) {
     val neverChecked get() = if (fa) "هنوز بررسی نشده" else "Never checked"
     val upToDate get() = if (fa) "آخرین نسخه را داری ✓" else "You're up to date ✓"
     val updateFailed get() = if (fa) "بررسی ناموفق بود؛ اینترنت را چک کن" else "Check failed; check your connection"
+    val updateNotFound get() = if (fa) "فایل به‌روزرسانی روی سرور پیدا نشد (۴۰۴)" else "Update file not found on the server (404)"
+    val updateServerError get() = if (fa) "سرور به‌روزرسانی پاسخ نداد؛ کمی بعد دوباره امتحان کن" else "Update server didn't respond; try again later"
     val newVersion get() = if (fa) "نسخه جدید" else "New version"
     val available get() = if (fa) "موجود است" else "available"
     val updateMarkets get() = if (fa) "از مارکت به‌روزرسانی کن:" else "Update from a store:"

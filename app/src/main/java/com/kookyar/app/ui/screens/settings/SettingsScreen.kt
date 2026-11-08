@@ -379,7 +379,12 @@ fun SettingsScreen() {
                 }
                 is UpdateUi.Failed -> {
                     Spacer(Modifier.height(10.dp))
-                    StatusLine(icon = Icons.Rounded.ErrorOutline, tint = palette.coral, text = s.updateFailed)
+                    val failMsg = when (u.reason) {
+                        UpdateUi.FailReason.NETWORK -> s.updateFailed
+                        UpdateUi.FailReason.NOT_FOUND -> s.updateNotFound
+                        UpdateUi.FailReason.SERVER -> s.updateServerError
+                    }
+                    StatusLine(icon = Icons.Rounded.ErrorOutline, tint = palette.coral, text = failMsg)
                 }
                 is UpdateUi.Available -> {
                     Spacer(Modifier.height(12.dp))

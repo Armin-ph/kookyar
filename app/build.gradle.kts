@@ -34,6 +34,18 @@ if (keystorePropertiesFile != null) {
     keystorePropertiesFile.inputStream().use { keystoreProperties.load(it) }
 }
 
+// ---------------------------------------------------------------------------
+// نام فایل‌های خروجی:
+//   APK release → kookyar-v1.1.0.apk        (نام برنامه + شمارهٔ نسخه)
+//   APK debug   → kookyar-v1.1.0-debug.apk
+//   AAB release → kookyar-release.aab
+// شمارهٔ نسخهٔ APK از versionName همین فایل خوانده می‌شود؛ یعنی با هر bump
+// نسخه، نام فایل خروجی هم خودکار به‌روز می‌شود (دیگر app-release.apk نیست).
+// ---------------------------------------------------------------------------
+base {
+    archivesName.set("kookyar")
+}
+
 android {
     namespace = "com.kookyar.app"
     compileSdk = 35
@@ -42,8 +54,8 @@ android {
         applicationId = "com.kookyar.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 3
+        versionName = "1.1.1"
         resourceConfigurations.addAll(listOf("fa", "en"))
         vectorDrawables { useSupportLibrary = true }
     }
@@ -97,6 +109,19 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    // نام فایل خروجی APK — بر اساس variant + versionName (به‌صورت خودکار):
+    applicationVariants.all {
+        val variantName = name
+        val version = defaultConfig.versionName ?: "0.0.0"
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            output.outputFileName = when (variantName) {
+                "release" -> "kookyar-v$version.apk"
+                else -> "kookyar-v$version-$variantName.apk"
+            }
         }
     }
 }

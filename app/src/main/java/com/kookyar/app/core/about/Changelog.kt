@@ -28,6 +28,22 @@ object Changelog {
 
     val entries: List<Entry> = listOf(
         Entry(
+            versionCode = 3,
+            versionName = "1.1.1",
+            date = "2026-11-08",
+            fa = listOf(
+                "عکس تار سه تار سنتور و کمانچه با عکس واقعی سازها جایگزین شد",
+                "رفع خطای «بررسی ناموفق بود» هنگام چک کردن به روزرسانی",
+                "پیام های خطای بروزرسانی رفع شد"
+            ),
+            en = listOf(
+                "Replaced Tar, Setar, Santur and Kamancheh pictures with real photos of the instruments",
+                "Fixed the «Check failed» error when checking for updates",
+                "Fixed update error messages"
+            )
+        ),
+
+        Entry(
             versionCode = 2,
             versionName = "1.1.0",
             date = "2026-11-03",
@@ -36,14 +52,20 @@ object Changelog {
                 "کلید تغییر زبان در صفحه تیونر، کنار دکمه تم",
                 "واکنش عقربه کوک خیلی روان‌تر و خواناتر شد",
                 "بخش «نسخه و تغییرات» در تنظیمات",
-                "بررسی و دریافت به‌روزرسانی از مارکت‌ها یا فایل نصبی در تنظیمات"
+                "بررسی و دریافت به‌روزرسانی از مارکت‌ها یا فایل نصبی در تنظیمات",
+                "رفع گیر کردن عقربهٔ تیونر؛ عقربه دقیق و بدون تپش روی نت می‌ایستد",
+                "تشخیص نت در محیط‌های شلوغ و پرسروصدا مطمئن‌تر شد؛ نویز محیط به‌عنوان نت ثبت نمی‌شود",
+                "اصلاح اندازهٔ فونت و فاصله‌گذاری نمایش نت"
             ),
             en = listOf(
                 "Added English - the app is now fully bilingual (فارسی / English)",
                 "Language switch button on the tuner page, next to the theme button",
                 "Much smoother, easier-to-read tuning needle",
                 "New \"Version & changes\" section in Settings",
-                "In-app update check & download from stores or APK in Settings"
+                "In-app update check & download from stores or APK in Settings",
+                "Fixed the tuning needle getting stuck - it settles precisely on the note",
+                "More reliable note detection in noisy environments; background noise is not detected as a note",
+                "Fixed note display font size and spacing"
             )
         ),
         Entry(

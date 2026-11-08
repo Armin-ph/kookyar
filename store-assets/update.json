@@ -1,24 +1,22 @@
 {
   "_comment": "Kookyar update manifest template. Host this file anywhere reachable (GitHub raw, your CDN, ...) and put its URL in UpdateChecker.UPDATE_JSON_URL. On every release: bump version_code + version_name, set date, translate the changelog lists (fa/en) — the app merges these release notes into Settings → «نسخه و تغییرات» automatically (no new APK needed for note fixes). version_code is compared against the installed BuildConfig.VERSION_CODE.",
-  "version_code": 2,
-  "version_name": "1.1.0",
-  "date": "2026-11-03",
+  "version_code": 3,
+  "version_name": "1.1.1",
+  "date": "2026-11-08",
   "min_version_code": 1,
-  "apk_url": "https://github.com/Armin-ph/kookyar/releases/download/v1.1.0/app-release.apk",
+  "apk_url": "https://github.com/Armin-ph/kookyar/releases/download/v1.1.1/kookyar-v1.1.1.apk",
   "changelog": {
     "fa": [
-      "زبان انگلیسی اضافه شد؛ اپلیکیشن دو زبانه شد (فارسی / English)",
-      "کلید تغییر زبان در صفحه تیونر، کنار دکمه تم",
-      "واکنش عقربه کوک خیلی روان‌تر و خواناتر شد",
-      "بخش «نسخه و تغییرات» در تنظیمات",
-      "بررسی و دریافت به‌روزرسانی از مارکت‌ها یا فایل نصبی در تنظیمات"
+      "عکس تار سه تار سنتور و کمانچه با عکس واقعی سازها جایگزین شد",
+      "رفع خطای «بررسی ناموفق بود» هنگام چک کردن به روزرسانی",
+      "پیام های خطای بروزرسانی رفع شد"
+
     ],
     "en": [
-      "Added English - the app is now fully bilingual (فارسی / English)",
-      "Language switch button on the tuner page, next to the theme button",
-      "Much smoother, easier-to-read tuning needle",
-      "New \"Version & changes\" section in Settings",
-      "In-app update check & download from stores or APK in Settings"
+      "Replaced Tar, Setar, Santur and Kamancheh pictures with real photos of the instruments",
+      "Fixed the «Check failed» error when checking for updates",
+      "Fixed update error messages"
+
     ]
   },
   "markets": {

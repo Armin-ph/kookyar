@@ -28,10 +28,20 @@ class SettingsViewModel : ViewModel() {
         data object Checking : UpdateUi
         data class Available(val manifest: UpdateChecker.UpdateManifest) : UpdateUi
         data object UpToDate : UpdateUi
-        data class Failed(val network: Boolean) : UpdateUi
+        data class Failed(val reason: FailReason) : UpdateUi
         data class Downloading(val progress: Int) : UpdateUi
         data class ReadyToInstall(val file: File, val versionName: String) : UpdateUi
         data object DownloadFailed : UpdateUi
+
+        /** Why a check failed — drives the exact message shown to the user. */
+        enum class FailReason {
+            /** No/weak connectivity on the device. */
+            NETWORK,
+            /** HTTP 404 — update.json is not hosted at the configured URL. */
+            NOT_FOUND,
+            /** Any other HTTP error (5xx, 403, …). */
+            SERVER
+        }
     }
 
     private val toneScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -90,7 +100,16 @@ class SettingsViewModel : ViewModel() {
                         if (UpdateChecker.isNewer(manifest)) UpdateUi.Available(manifest)
                         else UpdateUi.UpToDate
                 },
-                onFailure = { _update.value = UpdateUi.Failed(network = true) }
+                onFailure = { e ->
+                    _update.value = UpdateUi.Failed(
+                        when (e) {
+                            is UpdateChecker.UpdateHttpException ->
+                                if (e.code == 404) UpdateUi.FailReason.NOT_FOUND
+                                else UpdateUi.FailReason.SERVER
+                            else -> UpdateUi.FailReason.NETWORK
+                        }
+                    )
+                }
             )
         }
     }
