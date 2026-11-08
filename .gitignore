@@ -18,3 +18,11 @@ keystore.properties
 app/keystore.properties
 *.keystore
 *.jks
+
+*.apk
+*.aab
+app/release/
+
+CHANGELOG.md
+
+DEVELOPER.md
